@@ -1,0 +1,37 @@
+{
+  "apps": [{
+    "name": "subject-api",
+    "script": "index.js",
+    "log_date_format": "YYYY-MM-DD HH:mm:ss",
+    "env": {
+      "NODE_ENV": "production",
+      "NODE_APP_INSTANCE": ""
+    }
+  }],
+  "deploy" : {
+    "staging" : {
+      "user" : "deploy",
+      "host" : "staging.ers.local",
+      "ref"  : "origin/master",
+      "repo" : "git@gitlab.ers.local:subject/subject-api.git",
+      "path" : "~/subject-api",
+      "post-deploy" : "pm2 startOrRestart ecosystem.json"
+    },
+    "production" : {
+      "user" : "www",
+      "host" : "web.ers.local",
+      "ref"  : "origin/master",
+      "repo" : "git@gitlab.ers.local:subject/subject-api.git",
+      "path" : "/webdata/www/subject-api",
+      "post-deploy" : "pm2 startOrRestart ecosystem.json"
+    },
+    "production2" : {
+      "user" : "www",
+      "host" : "web2.ers.local",
+      "ref"  : "origin/master",
+      "repo" : "git@gitlab.ers.local:subject/subject-api.git",
+      "path" : "/webdata/www/subject-api",
+      "post-deploy" : "pm2 startOrRestart ecosystem.json"
+    }
+  }
+}
