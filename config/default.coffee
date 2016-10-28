@@ -20,12 +20,3 @@ module.exports =
     database: 'example'
     user: null
     password: null
-
-  eadmin:
-    baseUrl: 'http://eadmin-api.ersinfotech.com'
-
-  elog:
-    baseUrl: 'http://elog-api.ers.local'
-
-  email:
-    baseUrl: 'http://email-api.ers.local'
